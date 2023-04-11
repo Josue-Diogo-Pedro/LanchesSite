@@ -1,59 +1,58 @@
-﻿using LanchesSite.Context;
-using LanchesSite.Repositories;
-using LanchesSite.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿//using LanchesSite.Context;
+//using LanchesSite.Repositories;
+//using LanchesSite.Repositories.Interfaces;
+//using Microsoft.EntityFrameworkCore;
 
-namespace LanchesSite;
+//namespace LanchesSite;
 
-public class Startup
-{
-    public Startup(IConfiguration configuration)
-    {
-        Configuration = configuration;
-    }
+//public class Startup
+//{
+//    public Startup(IConfiguration configuration)
+//    {
+//        Configuration = configuration;
+//    }
 
-    IConfiguration Configuration { get; }
+//    IConfiguration Configuration { get; }
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        //services.AddControllers();
-        services.AddMvc();
-        services.AddControllersWithViews();
+//    public void ConfigureServices(IServiceCollection services)
+//    {
+//        //services.AddControllers();
+//        services.AddMvc();
+//        services.AddControllersWithViews();
 
-        services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"))
-        );
+//        services.AddDbContext<AppDbContext>();
+//        services.AddTransient<ITesteRepository, TesteRepository>();
 
-        //services.AddDbContext<NewDBContext>();
-
-        services.AddScoped<ILancheRepository, LancheRepository>();
-        services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+//        services.AddDbContext<AppDbContext>(options =>
+//            options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"))
+//        );
 
 
-    }
 
-    public void Configure(WebApplication app, IWebHostEnvironment ev)
-    {
-        if (!ev.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseExceptionHandler("Home/Error");
-            app.UseHsts();
-        }
-        app.UseHttpsRedirection();
-        app.UseStaticFiles();
+//    }
 
-        app.UseRouting();
+//    public void Configure(WebApplication app, IWebHostEnvironment ev)
+//    {
+//        if (!ev.IsDevelopment())
+//        {
+//            app.UseDeveloperExceptionPage();
+//        }
+//        else
+//        {
+//            app.UseExceptionHandler("Home/Error");
+//            app.UseHsts();
+//        }
+//        app.UseHttpsRedirection();
+//        app.UseStaticFiles();
 
-        app.UseAuthorization();
+//        app.UseRouting();
 
-        app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+//        app.UseAuthorization();
 
-        app.Run();
-    }
-}
+//        app.MapControllerRoute(
+//                name: "default",
+//                pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//        app.Run();
+//    }
+//}

@@ -1,11 +1,10 @@
 ﻿using LanchesSite.Models;
 
-namespace LanchesSite.Repositories.Interfaces
+namespace LanchesSite.Repositories.Interfaces;
+
+public interface ILancheRepository
 {
-    public interface ILancheRepository
-    {
-        IEnumerable<Lanche> Lanches { get; }
-        IEnumerable<Lanche> LanchesPreferidos { get; }
-        Lanche GetLancheById(int id);
-    }
+    IEnumerable<Lanche> Lanches { get; }
+    IEnumerable<Lanche> LanchesPreferidos { get; }
+    Lanche GetLancheById(int lancheId);
 }
